@@ -1,0 +1,13 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+<div class="header">
+    <h1> Box List </h1>
+<div>
+
+<lu>
+{% for box in object_list %}
+    <div class="list-object">
+        <li ><a href="{%url 'box-detail' box.pk%}">{{box.name}}  ${{box.price}}</a></li>
+    </div>
+{%endfor%}
+<lu>

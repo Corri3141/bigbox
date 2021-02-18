@@ -1,0 +1,15 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+
+<h1 class="header">{{box.name}}</h1>
+<h2 class="pre-header">Activities:</h2>
+<ul>
+    {%for activity in activities%}
+    <div class="list-object">
+        <li><a href="{%url 'activity' box.pk activity.pk%}">{{activity.name}}</a></li>
+    </div>
+    {%endfor%}
+    <div class="list-object">
+        <li><a href="{% url 'activities' box.pk %}">Show all activities</a></li>
+    </div>
+</ul>

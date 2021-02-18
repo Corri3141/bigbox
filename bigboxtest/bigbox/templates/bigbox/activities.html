@@ -1,0 +1,46 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
+
+<h1 class="header">Activities</h1>
+
+<div class="pagination-container">
+{% if activities.has_other_pages %}
+    {% if activities.has_previous %}
+      <h4 class="paginator"><a href="?page={{ activities.previous_page_number }}">&laquo;</a></h4>
+    {% else %}
+      <h4 class="paginator-disabled"><span>&laquo;</span></h4>
+    {% endif %}
+   
+    {% if activities.has_next %}
+      <h4 class="paginator"><a href="?page={{ activities.next_page_number }}">&raquo;</a></h4>
+    {% else %}
+      <h4 class="paginator-disabled"><span>&raquo;</span></h4>
+    {% endif %}
+{% endif %}
+</div>
+
+<lu>
+{%for activity in activities%}
+<div class="list-object">
+    <li><a href="{%url 'activity' box.pk activity.pk%}">{{activity.name}}</a></li>
+</div>
+{%endfor%}
+
+
+</lu>
+
+<div class="pagination-container">
+{% if activities.has_other_pages %}
+    {% if activities.has_previous %}
+      <h4 class="paginator"><a href="?page={{ activities.previous_page_number }}">&laquo;</a></h4>
+    {% else %}
+      <h4 class="paginator-disabled"><span>&laquo;</span></h4>
+    {% endif %}
+   
+    {% if activities.has_next %}
+      <h4 class="paginator"><a href="?page={{ activities.next_page_number }}">&raquo;</a></h4>
+    {% else %}
+      <h4 class="paginator-disabled"><span>&raquo;</span></h4>
+    {% endif %}
+{% endif %}
+</div>
