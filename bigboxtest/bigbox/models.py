@@ -40,4 +40,4 @@ class Box(Prodcut):
     price = models.IntegerField(verbose_name='precio de venta')
     purchase_available = models.BooleanField(
         verbose_name='disponible venta individual', default=False)
-    slug = models.CharField(max_length=20,null=True, blank=True, unique=True)
+    slug = models.SlugField(max_length=20,null=True, blank=True)

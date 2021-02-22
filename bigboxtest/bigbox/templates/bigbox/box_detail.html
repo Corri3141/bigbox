@@ -1,15 +1,22 @@
 {%load static%}
 <link rel="stylesheet" type="text/css" href="{%static 'css/containers.css' %}">
 
-<h1 class="header">{{box.name}}</h1>
-<h2 class="pre-header">Activities:</h2>
-<ul>
+<div class="navbar">
+    <a href="{%url "box-list"%}">
+        <img class="logo" src="{% static "bigbox.png" %}" alt="logo">
+    </a>
+</div>
+
+<div class="fonts">
+
     {%for activity in activities%}
-    <div class="list-object">
-        <li><a href="{%url 'activity' box.pk activity.pk%}">{{activity.name}}</a></li>
+    <div class="list-object-container" style="width:233px">
+        <h3>{{activity.name}}</h3>
+        <h6 style="width:100%;text-aling:left">{{activity.category.name}}</h6>
+        <a style="float:left;margin:5%" href="{%url 'activity' box.pk activity.pk%}"><button class="show-more">Show More!</button></a>
     </div>
     {%endfor%}
-    <div class="list-object">
-        <li><a href="{% url 'activities' box.pk %}">Show all activities</a></li>
-    </div>
-</ul>
+
+    <a style="margin:5%;width:100;margin-left:50%" href="{% url 'activities' box.pk %}"><button class="show-more">Show all activities</button></a>
+
+</div>
