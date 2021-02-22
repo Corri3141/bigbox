@@ -123,3 +123,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = [
     "/bigbox/static"
 ]
+
+STATIC_ROOT=os.path.join(BASE_DIR, "staticfiles")
