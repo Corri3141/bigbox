@@ -17,7 +17,6 @@ class BoxDetailView(DetailView):
     model = Box
 
     def get_context_data(self, **kwargs):
-        print(self.request)
         context = super().get_context_data(**kwargs)
         box = context["object"]
         activities = box.activities.all()[:5]
